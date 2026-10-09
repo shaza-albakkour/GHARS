@@ -1,0 +1,461 @@
+/* ==========================================================================
+   landing.css — الصفحة التعريفية (index.html)
+   بستان عند الشروق: صورة النبتة + الاسم، المميزات مع معاينة الهاتف،
+   سلّم النمو، قاعدة المنبّه، الفلسفة، التذييل الأخضر العميق.
+   ========================================================================== */
+
+.container {
+  width: min(1200px, 100% - 48px);
+  margin-inline: auto;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  inset-inline-start: 16px;
+  z-index: 999;
+  padding: 10px 16px;
+  background: var(--surface);
+  border-radius: var(--r-sm);
+}
+.skip-link:focus { top: 12px; }
+
+/* ---------- الترويسة ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-8);
+  min-height: 80px;
+}
+.site-brand { display: flex; align-items: center; gap: 10px; color: var(--forest); }
+[data-theme="dark"] .site-brand { color: var(--text); }
+.site-brand__name { font-family: var(--font-brand); font-size: 2.2rem; line-height: 1; padding-top: 8px; }
+
+.site-nav { display: flex; gap: var(--sp-8); }
+.site-nav a {
+  position: relative;
+  padding: 26px 0;
+  font-size: var(--fs-sm);
+  color: var(--text-2);
+  transition: color var(--dur);
+}
+.site-nav a:hover { color: var(--text); }
+.site-nav a.is-active { color: var(--forest); font-weight: 500; }
+[data-theme="dark"] .site-nav a.is-active { color: var(--accent-ink); }
+.site-nav a.is-active::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 18px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--leaf);
+}
+.site-header__actions { margin-inline-start: auto; display: flex; align-items: center; gap: var(--sp-2); }
+.site-header__menu { display: none; }
+
+/* ---------- الواجهة ---------- */
+.hero {
+  position: relative;
+  min-height: min(84vh, 680px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: linear-gradient(180deg, #f6efdf 0%, var(--bg) 100%);
+}
+[data-theme="dark"] .hero { background: linear-gradient(180deg, #13241a 0%, var(--bg) 100%); }
+
+.hero__photo {
+  position: absolute;
+  inset-block: 0;
+  left: 0;
+  width: 64%;
+  background: url("../../assets/images/hero-seedling.jpg") 42% 60% / cover no-repeat;
+  -webkit-mask-image: linear-gradient(to right, #000 55%, transparent 100%);
+  mask-image: linear-gradient(to right, #000 55%, transparent 100%);
+}
+
+.hero__inner { position: relative; display: flex; justify-content: flex-start; }
+.hero__copy {
+  width: min(540px, 46%);
+  padding: var(--sp-16) 0;
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: var(--sp-5);
+}
+.hero__lockup { display: grid; justify-items: center; gap: 0; animation: grow 1s var(--ease) both; }
+.hero__mark { width: clamp(78px, 8vw, 108px); height: auto; filter: drop-shadow(0 12px 20px rgba(31, 90, 58, .22)); }
+.hero__name {
+  font-family: var(--font-brand);
+  font-size: clamp(4rem, 9vw, 7.2rem);
+  line-height: 1.05;
+  color: var(--forest);
+  margin-top: -6px;
+}
+[data-theme="dark"] .hero__name { color: #d9ecd9; }
+.hero__title {
+  font-size: clamp(1.5rem, 2.6vw, 2.15rem);
+  font-weight: 600;
+  color: var(--forest-deep);
+  line-height: 1.5;
+}
+[data-theme="dark"] .hero__title { color: var(--text); }
+.hero__desc { font-size: var(--fs-lg); color: var(--text-2); line-height: 1.95; max-width: 46ch; }
+.hero__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--sp-3); margin-top: var(--sp-2); }
+
+@keyframes grow { from { opacity: 0; transform: translateY(16px) scale(.96); } to { opacity: 1; transform: none; } }
+
+/* ---------- عناوين الأقسام ---------- */
+.section-head {
+  max-width: 760px;
+  margin: 0 auto var(--sp-12);
+  text-align: center;
+  display: grid;
+  justify-items: center;
+  gap: var(--sp-4);
+}
+.section-head h2 {
+  font-size: clamp(1.75rem, 3.4vw, 2.55rem);
+  font-weight: 700;
+  color: var(--forest-deep);
+  line-height: 1.45;
+}
+[data-theme="dark"] .section-head h2 { color: var(--text); }
+.section-head h2 .brand-word { font-size: 1.2em; color: var(--forest); }
+[data-theme="dark"] .section-head h2 .brand-word { color: var(--accent-ink); }
+.section-head p { font-size: var(--fs-lg); color: var(--text-2); line-height: 1.95; }
+
+.sprout-rule { display: inline-flex; align-items: center; gap: 10px; }
+.sprout-rule span { width: 44px; height: 1.5px; background: var(--leaf); border-radius: 2px; opacity: .6; }
+
+/* ---------- ماذا يقدم لك غرس ---------- */
+.offer { padding: var(--sp-20) 0; }
+.offer__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(300px, 1fr);
+  gap: var(--sp-12);
+  align-items: center;
+}
+
+.feature-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--sp-10) var(--sp-6);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.feature { display: grid; justify-items: center; text-align: center; gap: var(--sp-2); }
+.feature .tile { margin-bottom: var(--sp-2); transition: transform 300ms var(--ease); }
+.feature:hover .tile { transform: translateY(-4px) rotate(-4deg); }
+.feature h3 { font-size: var(--fs-md); font-weight: 600; color: var(--forest-deep); }
+[data-theme="dark"] .feature h3 { color: var(--text); }
+.feature p { font-size: var(--fs-sm); color: var(--text-2); line-height: 1.75; }
+
+/* الهاتف */
+.phone-stage {
+  position: relative;
+  margin: 0;
+  display: grid;
+  justify-items: center;
+  padding: var(--sp-8) 0;
+}
+.phone-stage::before {
+  content: "";
+  position: absolute;
+  inset: 8% 0;
+  border-radius: 46% 54% 50% 50% / 52% 46% 54% 48%;
+  background: var(--sage);
+  z-index: -1;
+}
+.phone-stage__note { margin-top: var(--sp-3); font-size: var(--fs-xs); color: var(--text-3); }
+
+.phone {
+  width: 300px;
+  padding: 10px;
+  border-radius: 44px;
+  background: #1a2e22;
+  box-shadow: 0 30px 60px -24px rgba(0, 0, 0, .45);
+  transform: rotate(-2.5deg);
+}
+.phone__screen {
+  border-radius: 35px;
+  overflow: hidden;
+  background: #fbfaf4;
+  color: #1e3426;
+  padding: 10px 16px 0;
+  display: grid;
+  gap: 12px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.phone__status { display: flex; justify-content: space-between; align-items: center; font-size: 11px; font-weight: 600; padding: 0 6px; }
+.phone__notch { width: 86px; height: 22px; border-radius: 14px; background: #1a2e22; }
+.phone__top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+.phone__top strong { display: block; font-size: 16px; font-weight: 600; }
+.phone__top small { display: block; color: #5d6d61; font-size: 11px; }
+.phone__progress {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  border-radius: 18px;
+  background: #eef3ea;
+}
+.phone__progress p { font-size: 12px; color: #4f6355; line-height: 1.7; }
+.phone__ring { position: relative; width: 82px; height: 82px; }
+.phone__ring svg { transform: rotate(-90deg); width: 82px; height: 82px; }
+.phone__ring circle { fill: none; stroke-width: 7; }
+.phone__ring-track { stroke: #d7e3d3; }
+.phone__ring-bar { stroke: #3f8051; stroke-linecap: round; stroke-dasharray: 207.3; stroke-dashoffset: 41.5; }
+.phone__ring > span { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; line-height: 1.2; }
+.phone__ring b { font-size: 18px; color: #1f5a3a; }
+.phone__ring small { font-size: 9px; color: #5d6d61; }
+.phone__label { font-weight: 600; font-size: 13px; }
+.phone__tasks { display: grid; gap: 8px; list-style: none; padding: 0; margin: 0; }
+.phone__tasks li {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid #e6ebe1;
+}
+.phone__tasks b { display: block; font-size: 12.5px; font-weight: 500; }
+.phone__tasks small { display: block; font-size: 10.5px; color: #5d6d61; }
+.phone .tile--sky { background: #e4f1f7; color: #2c6888; }
+.phone .tile--rose { background: #f9e7ed; color: #a34f67; }
+.phone .tile--leaf { background: #e5f0e3; color: #28623f; }
+.phone__check { width: 22px; height: 22px; border-radius: 7px; border: 1.5px solid #c7d3c3; display: grid; place-items: center; color: transparent; }
+.phone__check .icon { width: 14px; height: 14px; }
+.phone__check.is-done { background: #3f8051; border-color: #3f8051; color: #fff; }
+.phone__nav {
+  display: flex;
+  justify-content: space-between;
+  margin: 2px -16px 0;
+  padding: 8px 14px 14px;
+  border-top: 1px solid #e6ebe1;
+  background: #fff;
+  font-size: 9.5px;
+  color: #64746a;
+}
+.phone__nav span { display: grid; justify-items: center; gap: 2px; }
+.phone__nav .icon { width: 18px; height: 18px; }
+.phone__nav .is-active { color: #1f5a3a; font-weight: 600; }
+
+/* ---------- سلّم النمو ---------- */
+.how { padding: var(--sp-20) 0; background: var(--surface-2); }
+.growth {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: end;
+  gap: var(--sp-6);
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--sp-16);
+}
+.growth::before {
+  content: "";
+  position: absolute;
+  inset-inline: 12%;
+  bottom: 118px;
+  border-top: 2px dashed var(--border-strong);
+}
+.growth__step { position: relative; display: grid; justify-items: center; text-align: center; gap: var(--sp-2); }
+.growth__seed {
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1.5px solid var(--border-strong);
+  margin-bottom: var(--sp-3);
+  background-image: url("../../assets/images/logo-mark.svg");
+  background-repeat: no-repeat;
+  background-position: center 58%;
+}
+.growth__step--1 .growth__seed { width: 64px; height: 64px; background-size: 26px; }
+.growth__step--2 .growth__seed { width: 84px; height: 84px; background-size: 38px; }
+.growth__step--3 .growth__seed { width: 108px; height: 108px; background-size: 52px; }
+.growth__step--4 .growth__seed { width: 136px; height: 136px; background-size: 70px; border-color: var(--gold); box-shadow: 0 0 0 8px var(--gold-soft); }
+.growth__level { font-size: var(--fs-sm); color: var(--leaf); font-weight: 600; }
+[data-theme="dark"] .growth__level { color: var(--accent-ink); }
+.growth__step strong { font-size: var(--fs-md); font-weight: 500; min-height: 3.6em; }
+
+.journey {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-6);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.journey li { display: flex; gap: var(--sp-4); align-items: flex-start; }
+.journey__n {
+  display: grid;
+  place-items: center;
+  flex: 0 0 48px;
+  height: 48px;
+  border-radius: 15px;
+  background: var(--forest);
+  color: #fff;
+  font-weight: 600;
+  font-size: var(--fs-lg);
+}
+.journey h3 { font-size: var(--fs-lg); margin-bottom: 4px; }
+.journey p { color: var(--text-2); font-size: var(--fs-sm); line-height: 1.8; }
+
+/* ---------- قاعدة المنبّه ---------- */
+.rule { padding: var(--sp-20) 0; }
+.rule__inner { display: grid; grid-template-columns: 1fr 1.15fr; gap: var(--sp-16); align-items: center; }
+.rule__text { display: grid; gap: var(--sp-5); }
+.rule__text h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); font-weight: 700; color: var(--forest-deep); }
+[data-theme="dark"] .rule__text h2 { color: var(--text); }
+.rule__text p { font-size: var(--fs-lg); color: var(--text-2); line-height: 1.95; }
+
+.rule-table { width: 100%; border: 1px solid var(--border); border-radius: var(--r-xl); border-collapse: separate; border-spacing: 0; overflow: hidden; background: var(--surface); }
+.rule-table th, .rule-table td { padding: 14px 20px; text-align: start; border-bottom: 1px solid var(--border); }
+.rule-table th { background: var(--surface-2); font-weight: 500; font-size: var(--fs-sm); color: var(--text-2); }
+.rule-table tr:last-child td { border-bottom: 0; }
+.rule-table tr.is-done td { background: var(--success-soft); font-weight: 600; }
+
+.rule__mock {
+  display: grid;
+  place-items: center;
+  padding: var(--sp-10);
+  border-radius: 24px;
+  background: var(--forest-deep);
+  background-image: linear-gradient(160deg, #1f5a3a 0%, #102f20 100%);
+}
+.mock-alarm {
+  width: min(340px, 100%);
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  padding: var(--sp-8) var(--sp-6) var(--sp-6);
+  border-radius: 22px;
+  background: #fbfaf4;
+  color: #1e3426;
+  text-align: center;
+  box-shadow: 0 24px 50px -20px rgba(0, 0, 0, .55);
+}
+.mock-alarm__sun {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #fbf0d2;
+  color: #8a6513;
+  border: 10px solid #fdf7e6;
+  margin-bottom: 6px;
+}
+.mock-alarm__sun .icon { width: 32px; height: 32px; }
+.mock-alarm__time { font-size: 2rem; font-weight: 600; line-height: 1.2; }
+.mock-alarm small { color: #5d6d61; }
+.mock-alarm__btns { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; width: 100%; margin-top: 10px; font-size: var(--fs-sm); }
+.mock-alarm__btns span { padding: 10px; border-radius: var(--r-pill); border: 1px solid #c7d3c3; }
+.mock-alarm__btns .mock-alarm__done { grid-column: 1 / -1; background: #3f8051; border-color: #3f8051; color: #fff; font-weight: 500; }
+
+/* ---------- الفلسفة ---------- */
+.philosophy { padding: var(--sp-20) 0; background: var(--forest-deep); color: #eef4ec; }
+.philosophy__inner { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: var(--sp-16); align-items: center; }
+.philosophy__photo {
+  aspect-ratio: 4 / 3.2;
+  border-radius: 46% 54% 42% 58% / 50% 44% 56% 50%;
+  background: url("../../assets/images/hero-seedling.jpg") 44% 50% / cover no-repeat;
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, .6);
+}
+.philosophy__text { display: grid; gap: var(--sp-5); justify-items: start; }
+.philosophy__quote { font-size: clamp(1.5rem, 2.8vw, 2.2rem); font-weight: 600; line-height: 1.7; color: #fff; }
+.philosophy__quote::before { content: "”"; display: block; font-size: 3.5rem; line-height: .6; color: var(--gold); margin-bottom: var(--sp-3); }
+.philosophy__text p:not(.philosophy__quote) { color: #c4d6c8; font-size: var(--fs-lg); line-height: 1.95; max-width: 52ch; }
+.philosophy__btn { background: #f8f6ee; color: #143a28; }
+.philosophy__btn:hover { background: #fff; color: #143a28; }
+
+/* ---------- التذييل ---------- */
+.site-footer { background: #0f2a1c; color: #e6efe4; }
+.site-footer__main { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: var(--sp-12); padding: var(--sp-16) 0 var(--sp-10); }
+.site-brand--footer { color: #fff; }
+.site-footer__brand p { color: #a9c2b0; margin-top: var(--sp-3); }
+.site-footer__links { display: grid; align-content: start; gap: 10px; }
+.site-footer__links strong { font-weight: 600; margin-bottom: 4px; }
+.site-footer__links a { color: #a9c2b0; font-size: var(--fs-sm); }
+.site-footer__links a:hover { color: #fff; }
+.site-footer__bottom { display: flex; justify-content: space-between; gap: var(--sp-4); padding: var(--sp-5) 0 var(--sp-6); border-top: 1px solid rgba(255, 255, 255, .12); color: #8fa596; font-size: var(--fs-xs); }
+
+/* ظهور تدريجي عند التمرير — المحتوى ظاهر افتراضيًا */
+.js-reveal .reveal { opacity: 0; transform: translateY(18px); transition: opacity 700ms var(--ease), transform 700ms var(--ease); }
+.js-reveal .reveal.is-visible { opacity: 1; transform: none; }
+
+/* ---------- الاستجابة ---------- */
+@media (max-width: 1100px) {
+  .site-nav { gap: var(--sp-5); }
+  .offer__layout { grid-template-columns: 1fr; }
+  .feature-list { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .rule__inner, .philosophy__inner { grid-template-columns: 1fr; gap: var(--sp-10); }
+  .philosophy__photo { max-width: 520px; width: 100%; justify-self: center; }
+}
+
+@media (max-width: 900px) {
+  .site-nav {
+    position: absolute;
+    top: 80px;
+    inset-inline: 0;
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    padding: var(--sp-2) var(--sp-6) var(--sp-5);
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+  .site-nav.is-open { display: flex; }
+  .site-nav a { padding: 12px 0; font-size: var(--fs-md); }
+  .site-nav a.is-active::after { bottom: 6px; inset-inline-end: auto; width: 28px; }
+  .site-header__menu { display: inline-grid; }
+  .site-header__login { display: none; }
+
+  .hero { min-height: 0; flex-direction: column; align-items: stretch; }
+  .hero__photo {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    -webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
+  }
+  .hero__inner { justify-content: center; }
+  .hero__copy { width: 100%; padding: 0 0 var(--sp-12); margin-top: -70px; }
+  .feature-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-8) var(--sp-4); }
+  .growth { grid-template-columns: repeat(2, 1fr); row-gap: var(--sp-10); }
+  .growth::before { display: none; }
+  .journey { grid-template-columns: 1fr; }
+  .site-footer__main { grid-template-columns: 1fr 1fr; }
+  .site-footer__brand { grid-column: 1 / -1; }
+}
+
+@media (max-width: 520px) {
+  .container { width: calc(100% - 32px); }
+  .site-header__inner { gap: var(--sp-3); }
+  .hero__photo { height: 240px; }
+  .hero__desc { font-size: var(--fs-md); }
+  .hero__actions .btn { width: 100%; }
+  .offer, .how, .rule, .philosophy { padding: var(--sp-16) 0; }
+  .phone { width: min(300px, 100%); }
+  .rule__mock { padding: var(--sp-6); }
+  .growth__step strong { min-height: 0; }
+  .site-footer__bottom { flex-direction: column; gap: 4px; }
+}
+.site-brand__tile { border-radius: 12px; }

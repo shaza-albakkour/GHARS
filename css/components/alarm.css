@@ -1,0 +1,96 @@
+/* ==========================================================================
+   alarm.css — شاشة المنبّه (Task Alarm Reminder)
+   شمس ذهبية تنبض = "الآن". تستمر حتى يتفاعل المستخدم.
+   ========================================================================== */
+
+.alarm {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: var(--sp-4);
+  background: rgba(10, 30, 19, .72);
+  animation: fade 220ms var(--ease);
+}
+
+.alarm__card {
+  width: min(460px, 100%);
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  background: var(--surface);
+  border-radius: 24px;
+  box-shadow: var(--shadow-lg);
+  padding: var(--sp-8) var(--sp-6) var(--sp-6);
+  text-align: center;
+  display: grid;
+  gap: var(--sp-5);
+  animation: rise 300ms var(--ease);
+}
+
+.alarm__bell {
+  margin: 0 auto;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--gold-soft);
+  color: var(--gold-ink);
+  position: relative;
+}
+.alarm__bell .icon { width: 44px; height: 44px; animation: ring 1.3s ease-in-out infinite; transform-origin: 50% 12%; }
+.alarm__bell::before,
+.alarm__bell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  opacity: 0;
+  animation: pulse 2.2s var(--ease) infinite;
+}
+.alarm__bell::after { animation-delay: 1.1s; }
+
+@keyframes ring {
+  0%, 100% { transform: rotate(0); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-12deg); }
+  30% { transform: rotate(9deg); }
+  40% { transform: rotate(-6deg); }
+  50% { transform: rotate(0); }
+}
+@keyframes pulse {
+  0% { transform: scale(1); opacity: .7; }
+  100% { transform: scale(1.75); opacity: 0; }
+}
+
+.alarm__time {
+  font-size: 2.6rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+  color: var(--text);
+}
+.alarm__title { font-size: var(--fs-lg); font-weight: 600; line-height: 1.6; }
+.alarm__task { font-size: var(--fs-sm); color: var(--text-2); }
+.alarm__note {
+  font-size: var(--fs-xs);
+  color: var(--text-2);
+  background: var(--surface-2);
+  border-radius: var(--r-md);
+  padding: var(--sp-3) var(--sp-4);
+  line-height: 1.8;
+}
+
+.alarm__actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-3);
+}
+.alarm__actions .btn--success { grid-column: 1 / -1; order: -1; }
+
+.alarm__snooze { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--sp-2); }
+.alarm__snooze .btn { min-width: 72px; }
+.alarm__custom { display: flex; gap: var(--sp-2); justify-content: center; align-items: center; }
+.alarm__custom .input { width: 120px; text-align: center; }

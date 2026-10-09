@@ -1,0 +1,80 @@
+/* ==========================================================================
+   home.css — الصفحة الرئيسية للمستخدم
+   بطاقة الترحيب = بستان عند الشروق: أخضر الغابة + صورة النبتة تتلاشى يسارًا
+   ========================================================================== */
+
+.announce {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-3) var(--sp-5);
+  margin-bottom: var(--sp-5);
+  border-radius: var(--r-lg);
+  background: var(--info-soft);
+  color: var(--info);
+  font-weight: 500;
+  font-size: var(--fs-sm);
+}
+
+.welcome {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-8);
+  padding: var(--sp-8) var(--sp-8) var(--sp-8) var(--sp-10);
+  min-height: 250px;
+  isolation: isolate;
+}
+.welcome::before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  left: 0;
+  width: 46%;
+  background: url("../../assets/images/hero-seedling.jpg") 40% 55% / cover no-repeat;
+  -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, .55) 0%, transparent 100%);
+  mask-image: linear-gradient(to right, rgba(0, 0, 0, .55) 0%, transparent 100%);
+  z-index: -1;
+}
+.welcome h1,
+.welcome p { color: inherit; }
+.welcome__text { display: grid; gap: var(--sp-2); }
+.welcome__dates { font-size: var(--fs-sm); color: var(--shell-muted); }
+.welcome__title { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 600; }
+.welcome__line { font-size: var(--fs-lg); max-width: 50ch; color: var(--shell-text); opacity: .92; line-height: 1.8; }
+.welcome__actions { display: flex; flex-wrap: wrap; gap: var(--sp-3); margin-top: var(--sp-3); }
+.welcome__btn { background: #f8f6ee; color: #143a28; }
+.welcome__btn:hover { background: #fff; color: #143a28; }
+.welcome__btn--ghost { background: transparent; color: var(--shell-text); border-color: rgba(255, 255, 255, .35); }
+.welcome__btn--ghost:hover { background: rgba(255, 255, 255, .1); color: var(--shell-text); }
+.welcome__ring {
+  flex: none;
+  padding: 10px;
+  border-radius: 50%;
+  background: rgba(10, 30, 19, .45);
+  backdrop-filter: blur(6px);
+}
+[data-accent="white"]:not([data-theme="dark"]) .welcome__btn--ghost { border-color: var(--border-strong); }
+[data-accent="white"]:not([data-theme="dark"]) .welcome__ring { background: rgba(255, 255, 255, .7); }
+
+.motivation {
+  display: flex;
+  gap: var(--sp-4);
+  align-items: center;
+  background: var(--sage);
+  border-color: transparent;
+}
+.motivation__text { font-size: var(--fs-lg); font-weight: 500; line-height: 1.8; color: var(--text); }
+
+.goal-mini { display: grid; gap: 8px; }
+.goal-mini + .goal-mini { padding-top: var(--sp-2); }
+.goal-mini__name { display: flex; justify-content: space-between; align-items: baseline; gap: var(--sp-2); font-size: var(--fs-md); font-weight: 500; }
+.goal-mini__name a:hover { color: var(--accent-ink); }
+
+@media (max-width: 700px) {
+  .welcome { flex-direction: column-reverse; align-items: stretch; padding: var(--sp-6); text-align: start; }
+  .welcome::before { width: 100%; height: 55%; top: 0; bottom: auto; -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,.5), transparent); mask-image: linear-gradient(to bottom, rgba(0,0,0,.5), transparent); }
+  .welcome__ring { align-self: center; }
+}

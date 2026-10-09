@@ -1,0 +1,21 @@
+/* ==========================================================================
+   worship.css — صفحة العبادة ووضع فترة الحيض
+   ========================================================================== */
+
+.period-state {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-4);
+  border-radius: var(--r-lg);
+  background: var(--surface-2);
+  margin-bottom: var(--sp-4);
+}
+.period-state.is-active { background: #fce8f0; color: #8a2350; }
+[data-theme="dark"] .period-state.is-active { background: #3a1d29; color: #f5a3c4; }
+.period-state__icon { font-size: 1.6rem; }
+.period-state strong { display: block; }
+.period-state small { opacity: .8; }
+
+.period-history { margin-top: var(--sp-4); }
+.period-history h3 { font-size: var(--fs-sm); color: var(--text-2); margin-bottom: var(--sp-2); }

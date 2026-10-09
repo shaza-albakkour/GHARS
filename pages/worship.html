@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>العبادة — غَرْس</title>
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lalezar&family=Readex+Pro:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/pages/worship.css">
+  <script src="../js/core/theme.js"></script>
+</head>
+<body>
+  <main class="page" id="page">
+    <div class="page-head">
+      <div>
+        <h1 class="page-head__title">العبادة</h1>
+        <p class="page-head__desc">الصلاة والصيام والقرآن قراءةً وحفظًا ومراجعة — وأي عبادة تحددها بنفسك.</p>
+      </div>
+      <button class="btn" data-custom>+ عبادة مخصصة</button>
+    </div>
+
+    <section class="grid-3" id="progress" aria-label="تقدم العبادات"></section>
+
+    <div class="grid-main-side mt-6">
+      <section class="card">
+        <div class="card__head">
+          <h2 class="card__title"><span class="tile tile--sm tile--leaf" data-icon="crescent"></span>عبادات اليوم</h2>
+          <span class="card__subtitle" id="today-date"></span>
+        </div>
+        <div id="today-list"></div>
+      </section>
+
+      <section class="card period-card" id="period-card" hidden>
+        <div class="card__head">
+          <h2 class="card__title"><span class="tile tile--sm tile--rose" data-icon="flower"></span>وضع فترة الحيض</h2>
+        </div>
+        <div id="period"></div>
+      </section>
+    </div>
+
+    <section class="card mt-6">
+      <div class="card__head">
+        <div>
+          <h2 class="card__title"><span class="tile tile--sm tile--gold" data-icon="zap"></span>إضافة سريعة</h2>
+          <p class="card__subtitle">قوالب جاهزة — يمكنك تعديلها بعد الإضافة</p>
+        </div>
+      </div>
+      <div id="presets"></div>
+    </section>
+  </main>
+
+  <script src="../js/loader.js" data-page="worship"></script>
+</body>
+</html>

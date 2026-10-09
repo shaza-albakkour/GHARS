@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>التقويم — غَرْس</title>
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lalezar&family=Readex+Pro:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/pages/calendar.css">
+  <script src="../js/core/theme.js"></script>
+</head>
+<body>
+  <main class="page" id="page">
+    <div class="page-head">
+      <div>
+        <h1 class="page-head__title" id="cal-title">التقويم</h1>
+        <p class="page-head__desc" id="cal-sub"></p>
+      </div>
+      <div class="row row-wrap">
+        <div class="segmented" id="view" role="group" aria-label="طريقة العرض">
+          <button data-view="week">أسبوع</button>
+          <button data-view="month" class="is-active">شهر</button>
+          <button data-view="year">سنة</button>
+        </div>
+        <div class="segmented" id="primary" role="group" aria-label="التقويم الأساسي">
+          <button data-primary="g" class="is-active">ميلادي</button>
+          <button data-primary="h">هجري</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="cal-nav">
+      <button class="icon-btn" data-step="-1" aria-label="السابق"></button>
+      <button class="btn btn--ghost btn--sm" data-step="0">اليوم</button>
+      <button class="icon-btn" data-step="1" aria-label="التالي"></button>
+    </div>
+
+    <div class="cal-layout">
+      <section class="card cal-card" id="calendar" aria-label="التقويم"></section>
+      <aside class="card day-panel" id="day-panel" aria-live="polite"></aside>
+    </div>
+  </main>
+
+  <script src="../js/loader.js" data-page="calendar"></script>
+</body>
+</html>

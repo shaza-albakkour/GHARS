@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تسجيل الدخول — غَرْس</title>
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lalezar&family=Readex+Pro:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/pages/auth.css">
+  <script src="../js/core/theme.js"></script>
+</head>
+<body>
+  <div class="auth">
+    <aside class="auth__brand">
+      <a class="auth__logo" href="../index.html">
+        <img src="../assets/images/favicon.svg" alt="">
+        <span>غَرْس</span>
+      </a>
+      <img class="auth__art" src="../assets/images/hero-seedling.jpg" alt="نبتة خضراء صغيرة تنمو وقت الشروق">
+      <p class="auth__quote">
+        <strong>من هدفٍ تزرعه، إلى إنجازٍ تحصده.</strong>
+        <span>أهلًا بعودتك — بذورك في انتظارك.</span>
+      </p>
+    </aside>
+
+    <main class="auth__panel">
+      <div class="auth__card">
+        <a class="auth__back" href="../index.html">→ العودة للصفحة الرئيسية</a>
+        <header class="auth__head">
+          <h1>تسجيل الدخول</h1>
+          <p>ادخل بالبريد الإلكتروني وكلمة السر.</p>
+        </header>
+
+        <form class="form" id="login-form" novalidate>
+          <div class="form-alert" data-alert hidden role="alert"></div>
+          <div class="field">
+            <label for="email">البريد الإلكتروني</label>
+            <input id="email" class="input ltr" type="email" name="email" autocomplete="email" required placeholder="name@example.com">
+          </div>
+          <div class="field">
+            <label for="password">كلمة السر</label>
+            <div class="input-group">
+              <input id="password" class="input" type="password" name="password" autocomplete="current-password" required>
+              <button type="button" class="icon-btn icon-btn--sm" data-toggle-pw aria-label="إظهار كلمة السر"></button>
+            </div>
+          </div>
+          <label class="switch">
+            <input type="checkbox" name="remember" checked>
+            <span class="switch-track"></span>
+            <span class="text-sm">تذكّرني على هذا الجهاز</span>
+          </label>
+          <button class="btn btn--lg btn--block" type="submit">دخول</button>
+        </form>
+
+        <p class="auth__alt">ليس لديك حساب؟ <a class="link-btn" href="register.html">أنشئ حسابًا جديدًا</a></p>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/loader.js" data-page="login"></script>
+</body>
+</html>

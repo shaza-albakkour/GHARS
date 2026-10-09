@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>لوحة الإدارة — غَرْس</title>
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lalezar&family=Readex+Pro:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/pages/admin.css">
+  <script src="../js/core/theme.js"></script>
+</head>
+<body>
+  <main class="page" id="page">
+    <div class="admin-banner">
+      <span class="tile tile--sm tile--sky" data-icon="shield"></span>
+      <span>لوحة الإدارة منفصلة عن واجهة المستخدم. لا يمكن للإدارة الاطلاع على أهداف المستخدمين أو مهامهم — فقط الأرقام العامة المسموح بها.</span>
+    </div>
+
+    <!-- لوحة المعلومات -->
+    <section data-section="dashboard">
+      <div class="page-head"><div><h1 class="page-head__title">لوحة المعلومات</h1><p class="page-head__desc">نظرة عامة على التطبيق.</p></div></div>
+      <div class="grid-4" id="admin-kpis"></div>
+      <div class="grid-2 mt-6">
+        <section class="card">
+          <div class="card__head"><h2 class="card__title"><span class="tile tile--sm tile--sky" data-icon="users"></span>المستخدمون الجدد</h2><span class="card__subtitle">آخر 6 أشهر</span></div>
+          <div id="signups-chart"></div>
+        </section>
+        <section class="card">
+          <div class="card__head"><h2 class="card__title"><span class="tile tile--sm tile--leaf" data-icon="chart"></span>الإحصائيات العامة</h2><span class="card__subtitle">مجمّعة بدون تفاصيل شخصية</span></div>
+          <div class="stack" id="global-stats"></div>
+        </section>
+      </div>
+    </section>
+
+    <!-- المستخدمون -->
+    <section data-section="users" hidden>
+      <div class="page-head"><div><h1 class="page-head__title">المستخدمون</h1><p class="page-head__desc">البحث، حالة الحساب، وإدارة الصلاحيات.</p></div></div>
+      <div class="toolbar">
+        <div class="search-box" id="user-search-box"><input class="input" type="search" id="user-search" placeholder="ابحث بالاسم أو البريد…" aria-label="بحث"></div>
+        <div class="segmented" id="user-filter" role="group" aria-label="تصفية">
+          <button data-f="" class="is-active">الكل</button>
+          <button data-f="active">النشطة</button>
+          <button data-f="disabled">المعطّلة</button>
+          <button data-f="admin">الإدارة</button>
+        </div>
+      </div>
+      <div class="table-wrap"><table class="table" id="users-table"></table></div>
+    </section>
+
+    <!-- الإعدادات العامة -->
+    <section data-section="settings" hidden>
+      <div class="page-head"><div><h1 class="page-head__title">إعدادات التطبيق</h1><p class="page-head__desc">التصنيفات العامة والمحتوى العام.</p></div></div>
+      <div class="grid-2">
+        <section class="card">
+          <h2 class="card__title mb-4"><span class="tile tile--sm tile--gold" data-icon="megaphone"></span>إعلان عام</h2>
+          <form class="form" id="announce-form">
+            <div class="field"><label for="announce">يظهر أعلى الصفحة الرئيسية لكل المستخدمين</label><textarea id="announce" class="textarea" name="announcement" maxlength="240" placeholder="اتركه فارغًا لإخفائه"></textarea></div>
+            <div class="form-actions"><button class="btn" type="submit">حفظ الإعلان</button></div>
+          </form>
+        </section>
+        <section class="card">
+          <h2 class="card__title mb-4"><span class="tile tile--sm tile--leaf" data-icon="sparkle"></span>رسائل تحفيزية عامة</h2>
+          <ul class="list" id="messages-list"></ul>
+          <form class="form mt-4" id="message-form">
+            <div class="field"><label for="msg">رسالة جديدة (يمكن استخدام {name} لاسم المستخدم)</label><input id="msg" class="input" name="message" maxlength="140"></div>
+            <div class="form-actions"><button class="btn btn--soft" type="submit">+ إضافة</button></div>
+          </form>
+        </section>
+      </div>
+      <section class="card mt-6">
+        <h2 class="card__title mb-4"><span class="tile tile--sm tile--sky" data-icon="tag"></span>التصنيفات العامة</h2>
+        <div class="table-wrap"><table class="table" id="cats-table"></table></div>
+        <form class="form mt-4" id="gcat-form" novalidate>
+          <div class="form-row">
+            <div class="field"><label for="g-name">الاسم</label><input id="g-name" class="input" name="name" maxlength="24" required></div>
+            <div class="field"><label for="g-icon">الرمز</label><input id="g-icon" class="input" name="icon" maxlength="4"></div>
+            <div class="field"><label for="g-color">اللون</label><input id="g-color" class="input color-input" type="color" name="color" value="#2f8f5b"></div>
+          </div>
+          <label class="switch"><input type="checkbox" name="worship"><span class="switch-track"></span><span class="text-sm">تصنيف تعبّدي</span></label>
+          <div class="form-actions"><button class="btn" type="submit">+ إضافة تصنيف عام</button></div>
+        </form>
+      </section>
+    </section>
+  </main>
+
+  <script src="../js/loader.js" data-page="admin"></script>
+</body>
+</html>

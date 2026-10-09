@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>الرئيسية — غَرْس</title>
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lalezar&family=Readex+Pro:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/pages/home.css">
+  <script src="../js/core/theme.js"></script>
+</head>
+<body>
+  <main class="page" id="page">
+
+    <!-- إعلان عام من الإدارة -->
+    <div class="announce" id="announce" role="note" hidden></div>
+
+    <!-- الترحيب + نسبة اليوم -->
+    <section class="welcome card card--accent">
+      <div class="welcome__text">
+        <p class="welcome__dates" id="welcome-dates"></p>
+        <h1 class="welcome__title" id="greeting"></h1>
+        <p class="welcome__line" id="today-line"></p>
+        <div class="welcome__actions">
+          <a class="btn welcome__btn" href="today.html">مهام اليوم</a>
+          <button class="btn welcome__btn welcome__btn--ghost" data-add>إضافة مهمة</button>
+        </div>
+      </div>
+      <div class="welcome__ring" id="today-ring"></div>
+    </section>
+
+    <!-- مؤشرات سريعة -->
+    <section class="grid-4 mt-6" id="kpis" aria-label="ملخص اليوم"></section>
+
+    <div class="grid-main-side mt-6">
+      <div class="stack-lg">
+        <section class="card">
+          <div class="card__head">
+            <h2 class="card__title"><span class="tile tile--sm tile--sky" data-icon="clock"></span>المهام القادمة</h2>
+            <a class="link-btn" href="today.html">عرض اليوم</a>
+          </div>
+          <div id="upcoming"></div>
+        </section>
+
+        <section class="card">
+          <div class="card__head">
+            <h2 class="card__title"><span class="tile tile--sm tile--rose" data-icon="hourglass"></span>المهام المتأخرة</h2>
+            <span class="card__subtitle">آخر 7 أيام</span>
+          </div>
+          <div id="late"></div>
+        </section>
+      </div>
+
+      <div class="stack-lg">
+        <section class="card">
+          <div class="card__head">
+            <h2 class="card__title"><span class="tile tile--sm tile--leaf" data-icon="chart"></span>التقدم</h2>
+            <a class="link-btn" href="stats.html">الإحصائيات</a>
+          </div>
+          <div class="stack" id="progress"></div>
+        </section>
+
+        <section class="card motivation">
+          <span class="tile tile--lg" data-icon="leaf" aria-hidden="true"></span>
+          <p class="motivation__text" id="motivation"></p>
+        </section>
+
+        <section class="card">
+          <div class="card__head">
+            <h2 class="card__title"><span class="tile tile--sm tile--plum" data-icon="target"></span>أهدافي</h2>
+            <a class="link-btn" href="goals.html">كل الأهداف</a>
+          </div>
+          <div class="stack" id="goals-mini"></div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/loader.js" data-page="home"></script>
+</body>
+</html>

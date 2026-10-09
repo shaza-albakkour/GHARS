@@ -1,0 +1,100 @@
+/* ==========================================================================
+   buttons.css — الأزرار
+   .btn            زر أساسي (أخضر الغابة)
+   .btn--ghost     زر بإطار
+   .btn--soft      زر بخلفية هادئة
+   .btn--danger / .btn--success
+   .btn--sm / .btn--lg / .btn--block
+   .icon-btn       زر أيقونة دائري
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 0 22px;
+  border-radius: var(--r-pill);
+  border: 1px solid transparent;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  font-weight: 500;
+  font-size: var(--fs-sm);
+  white-space: nowrap;
+  transition: background var(--dur) var(--ease), transform var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+.btn:hover { background: var(--accent-strong); box-shadow: 0 10px 22px -10px var(--accent-glow), 0 6px 14px -8px var(--accent-glow); transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+.btn:disabled { opacity: .55; cursor: not-allowed; box-shadow: none; transform: none; }
+
+.btn--ghost {
+  background: var(--surface);
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+.btn--ghost:hover { background: var(--surface-2); box-shadow: none; border-color: var(--text-3); }
+
+.btn--soft {
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+}
+.btn--soft:hover { background: var(--accent-soft); box-shadow: inset 0 0 0 1px var(--accent); }
+
+.btn--danger { background: var(--danger); color: #fff; }
+.btn--danger:hover { background: var(--danger); filter: brightness(.94); box-shadow: none; }
+
+.btn--success { background: var(--leaf); color: #fff; }
+[data-theme="dark"] .btn--success { background: var(--success); color: #0c1a12; }
+.btn--success:hover { background: var(--leaf); filter: brightness(.95); box-shadow: none; }
+
+.btn--sm { min-height: 38px; padding: 0 16px; font-size: var(--fs-xs); }
+.btn--lg { min-height: 54px; padding: 0 30px; font-size: var(--fs-md); }
+.btn--block { width: 100%; }
+
+.icon-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--r-pill);
+  color: var(--text-2);
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.icon-btn:hover { background: var(--surface-2); color: var(--text); }
+.icon-btn--sm { width: 34px; height: 34px; }
+
+.icon-btn .icon { width: 20px; height: 20px; }
+.btn .icon { width: 19px; height: 19px; }
+.btn--sm .icon { width: 16px; height: 16px; }
+
+.link-btn {
+  color: var(--accent-ink);
+  font-weight: 500;
+  font-size: var(--fs-sm);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 5px;
+  transition: text-decoration-color var(--dur);
+}
+.link-btn:hover { text-decoration-color: currentColor; }
+
+/* زر الإضافة العائم (الجوال) */
+.fab {
+  position: fixed;
+  inset-inline-start: var(--sp-4);
+  bottom: calc(var(--bottomnav-h) + var(--sp-4));
+  width: 58px;
+  height: 58px;
+  border-radius: var(--r-pill);
+  background: var(--accent);
+  color: var(--accent-contrast);
+  box-shadow: 0 14px 28px -10px var(--accent-glow), var(--shadow);
+  display: none;
+  place-items: center;
+  z-index: 30;
+}
+.fab .icon { width: 26px; height: 26px; }
+@media (max-width: 960px) { .fab { display: grid; } }

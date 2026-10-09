@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>اليوم — غَرْس</title>
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lalezar&family=Readex+Pro:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/pages/today.css">
+  <script src="../js/core/theme.js"></script>
+</head>
+<body>
+  <main class="page" id="page">
+    <div class="page-head">
+      <div>
+        <h1 class="page-head__title" id="day-title">اليوم</h1>
+        <p class="page-head__desc" id="day-hijri"></p>
+      </div>
+      <div class="day-nav">
+        <button class="icon-btn" data-nav="-1" aria-label="اليوم السابق"></button>
+        <button class="btn btn--ghost btn--sm" data-nav="0">اليوم</button>
+        <input class="input day-nav__date" type="date" id="day-picker" aria-label="اختيار تاريخ">
+        <button class="icon-btn" data-nav="1" aria-label="اليوم التالي"></button>
+      </div>
+    </div>
+
+    <section class="card day-summary" id="summary" aria-label="ملخص اليوم"></section>
+
+    <div class="toolbar">
+      <div class="segmented" id="status-filter" role="group" aria-label="تصفية حسب الحالة">
+        <button data-filter="all" class="is-active">الكل</button>
+        <button data-filter="open">المتبقية</button>
+        <button data-filter="done">المكتملة</button>
+        <button data-filter="late">المتأخرة</button>
+      </div>
+      <div class="toolbar__spacer"></div>
+      <select class="select cat-filter" id="cat-filter" aria-label="تصفية حسب التصنيف"></select>
+    </div>
+
+    <div id="groups"></div>
+  </main>
+
+  <script src="../js/loader.js" data-page="today"></script>
+</body>
+</html>

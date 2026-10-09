@@ -1,0 +1,107 @@
+/* ==========================================================================
+   settings.css — صفحة الإعدادات
+   ========================================================================== */
+
+.settings {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: var(--sp-6);
+  align-items: start;
+}
+.settings__nav {
+  position: sticky;
+  top: calc(var(--topbar-h) + 16px);
+  display: grid;
+  gap: 2px;
+}
+.settings__nav a {
+  padding: 8px 12px;
+  border-radius: var(--r-md);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text-2);
+}
+.settings__nav a:hover { background: var(--surface-2); color: var(--text); }
+.settings__body { display: grid; gap: var(--sp-5); }
+.settings__body .card { scroll-margin-top: calc(var(--topbar-h) + 16px); }
+.settings__title { display: flex; align-items: center; gap: var(--sp-3); font-size: var(--fs-lg); font-weight: 600; margin-bottom: var(--sp-6); }
+
+.setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--sp-4);
+  padding: var(--sp-3) 0;
+  border-bottom: 1px solid var(--border);
+}
+.setting-row:last-child { border-bottom: 0; }
+.setting-row__text strong { display: block; font-size: var(--fs-sm); }
+.setting-row__text small { color: var(--text-3); font-size: var(--fs-xs); }
+.setting-row .select { width: auto; min-width: 140px; }
+
+/* ألوان التمييز */
+.swatches { display: flex; flex-wrap: wrap; gap: var(--sp-3); }
+.swatch {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  font-size: var(--fs-xs);
+  color: var(--text-2);
+}
+.swatch__dot {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  background: var(--sw);
+  display: grid;
+  place-items: center;
+  color: #fff;
+  transition: transform var(--dur) var(--ease);
+}
+.swatch:hover .swatch__dot { transform: scale(1.08); }
+.swatch.is-active .swatch__dot { box-shadow: 0 0 0 3px var(--bg), 0 0 0 5px var(--sw); }
+.swatch[data-accent="white"] .swatch__dot { color: #111; }
+.swatch__dot svg { width: 18px; height: 18px; opacity: 0; }
+.swatch.is-active .swatch__dot svg { opacity: 1; }
+
+/* التصنيفات */
+.cat-list { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
+.cat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 6px 4px 12px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  font-size: var(--fs-sm);
+}
+.cat-pill .icon-btn { width: 24px; height: 24px; }
+.cat-pill__lock { font-size: var(--fs-xs); color: var(--text-3); padding-inline-end: 6px; }
+.color-input { padding: 4px; height: 44px; cursor: pointer; }
+
+.rest-period {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-2) var(--sp-3);
+  background: var(--surface-2);
+  border-radius: var(--r-md);
+  font-size: var(--fs-sm);
+}
+
+input[type="range"] { accent-color: var(--accent); width: 100%; }
+
+@media (max-width: 900px) {
+  .settings { grid-template-columns: 1fr; }
+  .settings__nav {
+    position: static;
+    display: flex;
+    overflow-x: auto;
+    gap: var(--sp-2);
+    padding-bottom: 4px;
+  }
+  .settings__nav a { white-space: nowrap; background: var(--surface); border: 1px solid var(--border); }
+}

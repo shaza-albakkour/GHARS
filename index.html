@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#143a28">
+  <title>غَرْس — من هدفٍ تزرعه، إلى إنجازٍ تحصده</title>
+  <meta name="description" content="غَرْس: نظام شخصي متكامل لإدارة الأهداف والمهام والتذكير والمتابعة — من الهدف السنوي إلى خطوة اليوم.">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lalezar&family=Readex+Pro:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/pages/landing.css">
+  <script src="js/core/theme.js"></script>
+</head>
+<body class="landing">
+  <a class="skip-link" href="#main">انتقل إلى المحتوى</a>
+
+  <!-- ===================== الترويسة ===================== -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="site-brand" href="#top" aria-label="غَرْس — أعلى الصفحة">
+        <img src="assets/images/logo-mark.svg" alt="" width="44" height="44">
+        <span class="site-brand__name">غَرْس</span>
+      </a>
+
+      <nav class="site-nav" id="site-nav" aria-label="أقسام الصفحة">
+        <a href="#top" class="is-active">الرئيسية</a>
+        <a href="#features">المميزات</a>
+        <a href="#how">كيف يعمل؟</a>
+        <a href="#alarm">المنبّه</a>
+        <a href="#philosophy">فلسفة غَرْس</a>
+      </nav>
+
+      <div class="site-header__actions">
+        <button class="icon-btn" data-theme-toggle aria-label="تبديل الوضع الفاتح والداكن"></button>
+        <a class="btn btn--ghost btn--sm site-header__login" href="pages/login.html" data-guest>تسجيل الدخول</a>
+        <a class="btn btn--sm" href="pages/register.html" data-guest>ابدأ الآن</a>
+        <a class="btn btn--sm" href="pages/home.html" data-member hidden>افتح التطبيق</a>
+        <button class="icon-btn site-header__menu" data-menu aria-expanded="false" aria-controls="site-nav" aria-label="فتح القائمة"></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ===================== الواجهة: الاسم + صورة النبتة ===================== -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero__photo" role="img" aria-label="نبتة خضراء صغيرة تنمو من التربة وقت شروق الشمس"></div>
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <div class="hero__lockup">
+            <img class="hero__mark" src="assets/images/logo-mark.svg" alt="" width="104" height="104">
+            <span class="hero__name">غَرْس</span>
+          </div>
+          <h1 class="hero__title" id="hero-title">من هدفٍ تزرعه، إلى إنجازٍ تحصده.</h1>
+          <p class="hero__desc">
+            نظام شخصي متكامل لإدارة أهدافك ومهامك وتطورك وإنجازاتك.
+            كل ما تحتاجه لحياة أكثر تنظيمًا، في مكان واحد.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--lg" href="pages/register.html" data-guest>ابدأ رحلتك الآن <span data-icon="arrow"></span></a>
+            <a class="btn btn--lg" href="pages/home.html" data-member hidden>تابع رحلتك <span data-icon="arrow"></span></a>
+            <a class="btn btn--ghost btn--lg" href="#features">اكتشف المزيد</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ماذا يقدم لك غرس ===================== -->
+    <section class="offer" id="features" aria-labelledby="offer-title">
+      <div class="container">
+        <header class="section-head">
+          <h2 id="offer-title">ماذا يقدّم لك <span class="brand-word">غَرْس</span>؟</h2>
+          <span class="sprout-rule" aria-hidden="true"><span></span><img src="assets/images/logo-mark.svg" alt="" width="22" height="22"><span></span></span>
+          <p>غَرْس ليس مجرد قائمة مهام؛ بل نظام متكامل يحوّل أحلامك وأهدافك إلى خطوات عملية قابلة للتنفيذ والمتابعة، مع تقارير وإحصائيات تُظهر تطورك الحقيقي مع مرور الوقت.</p>
+        </header>
+
+        <div class="offer__layout">
+          <!-- المميزات -->
+          <ul class="feature-list" role="list">
+            <li class="feature">
+              <span class="tile tile--lg tile--plum" data-icon="target"></span>
+              <h3>أهداف متدرّجة</h3>
+              <p>من السنوي إلى اليومي برؤية واضحة</p>
+            </li>
+            <li class="feature">
+              <span class="tile tile--lg tile--sky" data-icon="calendarCheck"></span>
+              <h3>مهام يومية وأسبوعية</h3>
+              <p>نظّم وقتك وأنجز ما يهمك</p>
+            </li>
+            <li class="feature">
+              <span class="tile tile--lg tile--leaf" data-icon="bell"></span>
+              <h3>تذكيرات ومنبّهات</h3>
+              <p>لا تفوّت أي مهمة مهمة في حياتك</p>
+            </li>
+            <li class="feature">
+              <span class="tile tile--lg tile--rose" data-icon="chart"></span>
+              <h3>إحصائيات وتقارير</h3>
+              <p>اعرف تقدّمك بدقة مع الرسوم البيانية</p>
+            </li>
+            <li class="feature">
+              <span class="tile tile--lg tile--rose" data-icon="palette"></span>
+              <h3>تخصيص المظهر</h3>
+              <p>سبعة ألوان مع الوضع الليلي</p>
+            </li>
+            <li class="feature">
+              <span class="tile tile--lg tile--sage" data-icon="heartPulse"></span>
+              <h3>صحة وعبادة</h3>
+              <p>عناية بجسدك وروحك في مكان واحد</p>
+            </li>
+            <li class="feature">
+              <span class="tile tile--lg tile--sky" data-icon="devices"></span>
+              <h3>هاتف ولابتوب</h3>
+              <p>تصميم يعمل على كل الشاشات</p>
+            </li>
+            <li class="feature">
+              <span class="tile tile--lg tile--gold" data-icon="shield"></span>
+              <h3>أمان وخصوصية</h3>
+              <p>بياناتك لك وحدك، وكلمة السر مشفّرة</p>
+            </li>
+          </ul>
+
+          <!-- معاينة التطبيق على الهاتف -->
+          <figure class="phone-stage" aria-label="معاينة توضيحية لشاشة غَرْس الرئيسية">
+            <div class="phone">
+              <div class="phone__screen">
+                <div class="phone__status"><span class="num">9:41</span><span class="phone__notch"></span></div>
+                <div class="phone__top">
+                  <div>
+                    <strong>مرحبًا، شذى</strong>
+                    <small data-today-g></small>
+                    <small data-today-h></small>
+                  </div>
+                  <img src="assets/images/logo-mark.svg" alt="" width="34" height="34">
+                </div>
+                <div class="phone__progress">
+                  <div class="phone__ring" aria-hidden="true">
+                    <svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="33" class="phone__ring-track"/><circle cx="40" cy="40" r="33" class="phone__ring-bar"/></svg>
+                    <span><b class="num">80%</b><small>إنجاز اليوم</small></span>
+                  </div>
+                  <p>أنتِ أقرب إلى هدفك مما تتخيلين. خطوة صغيرة اليوم تصنع فرقًا كبيرًا غدًا.</p>
+                </div>
+                <div class="phone__label">المهام القادمة</div>
+                <ul class="phone__tasks" role="list">
+                  <li><span class="tile tile--sm tile--sky" data-icon="book"></span><span><b>دراسة JavaScript</b><small class="num">08:00 – 10:00</small></span><span class="phone__check is-done" data-icon="check"></span></li>
+                  <li><span class="tile tile--sm tile--rose" data-icon="run"></span><span><b>الرياضة</b><small class="num">16:00 – 17:00</small></span><span class="phone__check" data-icon="check"></span></li>
+                  <li><span class="tile tile--sm tile--leaf" data-icon="bookOpen"></span><span><b>قراءة القرآن</b><small class="num">19:00 – 20:00</small></span><span class="phone__check" data-icon="check"></span></li>
+                </ul>
+                <nav class="phone__nav" aria-hidden="true">
+                  <span class="is-active"><i data-icon="home"></i>الرئيسية</span>
+                  <span><i data-icon="today"></i>اليوم</span>
+                  <span><i data-icon="target"></i>الأهداف</span>
+                  <span><i data-icon="chart"></i>الإحصائيات</span>
+                  <span><i data-icon="settings"></i>الإعدادات</span>
+                </nav>
+              </div>
+            </div>
+            <figcaption class="phone-stage__note">معاينة توضيحية</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== كيف يعمل: السلّم الهرمي ===================== -->
+    <section class="how" id="how" aria-labelledby="how-title">
+      <div class="container">
+        <header class="section-head">
+          <h2 id="how-title">الإنجاز اليومي الصغير يصنع الإنجاز الكبير</h2>
+          <span class="sprout-rule" aria-hidden="true"><span></span><img src="assets/images/logo-mark.svg" alt="" width="22" height="22"><span></span></span>
+          <p>اعرف العلاقة بين ما تفعله اليوم والهدف الكبير الذي تسعى إليه. مثال من رحلة حفظ القرآن:</p>
+        </header>
+
+        <ol class="growth" role="list">
+          <li class="growth__step growth__step--1">
+            <span class="growth__seed" aria-hidden="true"></span>
+            <span class="growth__level">مهام يومية</span>
+            <strong>حفظ + مراجعة + استماع</strong>
+          </li>
+          <li class="growth__step growth__step--2">
+            <span class="growth__seed" aria-hidden="true"></span>
+            <span class="growth__level">هدف أسبوعي</span>
+            <strong>حفظ عدد محدد من الصفحات</strong>
+          </li>
+          <li class="growth__step growth__step--3">
+            <span class="growth__seed" aria-hidden="true"></span>
+            <span class="growth__level">هدف شهري</span>
+            <strong>حفظ سورة معيّنة</strong>
+          </li>
+          <li class="growth__step growth__step--4">
+            <span class="growth__seed" aria-hidden="true"></span>
+            <span class="growth__level">هدف سنوي</span>
+            <strong>حفظ القرآن كاملًا</strong>
+          </li>
+        </ol>
+
+        <ol class="journey" role="list">
+          <li><span class="journey__n num">1</span><div><h3>ازرع هدفك</h3><p>اكتب ما تريد تحقيقه وحدّد موعده وتصنيفه.</p></div></li>
+          <li><span class="journey__n num">2</span><div><h3>قسّمه إلى خطوات</h3><p>أهداف شهرية وأسبوعية، ثم مهام يومية واضحة.</p></div></li>
+          <li><span class="journey__n num">3</span><div><h3>أنجز وتابع</h3><p>اضغط "تم الإنجاز" وشاهد نسبتك ترتفع بصدق.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================== قاعدة المنبّه ===================== -->
+    <section class="rule" id="alarm" aria-labelledby="rule-title">
+      <div class="container rule__inner">
+        <div class="rule__mock" aria-hidden="true">
+          <div class="mock-alarm">
+            <span class="mock-alarm__sun"><i data-icon="bell"></i></span>
+            <span class="mock-alarm__time num">8:00 ص</span>
+            <strong>حان الآن موعد الدراسة يا شذى</strong>
+            <small>دراسة JavaScript</small>
+            <span class="mock-alarm__btns">
+              <span class="mock-alarm__done">تم الإنجاز</span>
+              <span>إيقاف التذكير</span>
+              <span>تأجيل</span>
+            </span>
+          </div>
+        </div>
+        <div class="rule__text">
+          <h2 id="rule-title">إيقاف المنبّه لا يعني الإنجاز</h2>
+          <p>المنبّه يستمر حتى تتفاعل معه. إيقافه يعني فقط أنك أصبحت على علم بالمهمة — ولا تُحتسب مكتملة إلا عندما تضغط <b>"تم الإنجاز"</b> بعد تنفيذها فعلًا، لتبقى نسبتك صادقة.</p>
+          <table class="rule-table">
+            <thead><tr><th scope="col">الإجراء</th><th scope="col">حالة المهمة</th></tr></thead>
+            <tbody>
+              <tr><td>ظهور المنبّه</td><td><span class="badge">غير مكتملة</span></td></tr>
+              <tr><td>إيقاف المنبّه</td><td><span class="badge">غير مكتملة</span></td></tr>
+              <tr><td>تأجيل المنبّه</td><td><span class="badge">غير مكتملة</span></td></tr>
+              <tr class="is-done"><td>الضغط على "تم الإنجاز"</td><td><span class="badge badge--done">مكتملة</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== الفلسفة ===================== -->
+    <section class="philosophy" id="philosophy" aria-labelledby="philo-title">
+      <div class="container philosophy__inner">
+        <div class="philosophy__photo" role="img" aria-label="نبتة صغيرة تستقبل ضوء الشروق"></div>
+        <div class="philosophy__text">
+          <p class="philosophy__quote" id="philo-title">كل إنجاز عظيم بدأ بفكرة، ثم بخطوة صغيرة، ثم بعادة، ثم باستمرارية.</p>
+          <p>عدم إنجاز مهمة لا يعني أنك فشلت. غَرْس يسجّل الواقع لتعدّل خطتك وتستمر — وأيام الراحة والاستثناءات جزء من الرحلة، لا تُحتسب عليك.</p>
+          <a class="btn btn--lg philosophy__btn" href="pages/register.html" data-guest>ازرع أول هدف</a>
+          <a class="btn btn--lg philosophy__btn" href="pages/home.html" data-member hidden>افتح التطبيق</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__main">
+      <div class="site-footer__brand">
+        <a class="site-brand site-brand--footer" href="#top"><img src="assets/images/favicon.svg" alt="" width="44" height="44" class="site-brand__tile"><span class="site-brand__name">غَرْس</span></a>
+        <p>من هدفٍ تزرعه، إلى إنجازٍ تحصده.</p>
+      </div>
+      <nav class="site-footer__links" aria-label="روابط التذييل">
+        <strong>استكشف</strong>
+        <a href="#features">المميزات</a>
+        <a href="#how">كيف يعمل؟</a>
+        <a href="#philosophy">فلسفة غَرْس</a>
+      </nav>
+      <div class="site-footer__links">
+        <strong>حسابك</strong>
+        <a href="pages/register.html">إنشاء حساب</a>
+        <a href="pages/login.html">تسجيل الدخول</a>
+      </div>
+    </div>
+    <div class="container site-footer__bottom">
+      <span>© <span data-year></span> غَرْس. بياناتك محفوظة على جهازك.</span>
+      <span>صُنع ليكون التقدّم ألطف</span>
+    </div>
+  </footer>
+
+  <script src="js/loader.js" data-page="landing"></script>
+</body>
+</html>

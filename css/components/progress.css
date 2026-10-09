@@ -1,0 +1,60 @@
+/* ==========================================================================
+   progress.css — أشرطة التقدم وحلقة التقدم
+   ========================================================================== */
+
+.progress { display: grid; gap: 8px; }
+
+.progress__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sp-2);
+  font-size: var(--fs-sm);
+}
+.progress__label { color: var(--text); font-weight: 500; }
+.progress__value { font-weight: 600; font-variant-numeric: tabular-nums; color: var(--accent-ink); }
+
+.progress__track {
+  height: 10px;
+  border-radius: var(--r-pill);
+  background: var(--surface-3);
+  overflow: hidden;
+}
+.progress__fill {
+  height: 100%;
+  width: 0;
+  border-radius: var(--r-pill);
+  background: var(--progress);
+  transition: width 800ms var(--ease);
+}
+.progress--sm .progress__track { height: 7px; }
+.progress--lg .progress__track { height: 14px; }
+
+.progress__meta { font-size: var(--fs-xs); color: var(--text-3); }
+
+/* الحلقة */
+.ring { position: relative; display: inline-grid; place-items: center; }
+.ring svg { transform: rotate(-90deg); }
+.ring__track { stroke: var(--surface-3); }
+.ring__bar {
+  stroke: var(--progress);
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1000ms var(--ease);
+}
+.card--accent .ring__track { stroke: rgba(255, 255, 255, .14); }
+.card--accent .ring__bar { stroke: var(--gold); }
+.ring__label {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  gap: 2px;
+}
+.ring__value {
+  font-size: var(--fs-2xl);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+.ring__caption { font-size: var(--fs-xs); opacity: .85; }

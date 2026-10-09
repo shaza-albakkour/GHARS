@@ -1,0 +1,151 @@
+/* ==========================================================================
+   calendar.css — التقويم (أسبوع / شهر / سنة) + لوحة اليوم
+   ========================================================================== */
+
+.cal-nav { display: flex; align-items: center; gap: var(--sp-2); margin-bottom: var(--sp-4); }
+
+.cal-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(320px, 1fr);
+  gap: var(--sp-5);
+  align-items: start;
+}
+.cal-card { padding: var(--sp-4); }
+
+/* شهر */
+.month-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+}
+.month-grid__dow {
+  text-align: center;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--text-3);
+  padding-bottom: var(--sp-2);
+}
+.day-cell {
+  position: relative;
+  min-height: 84px;
+  padding: 8px;
+  border-radius: var(--r-md);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  display: grid;
+  align-content: space-between;
+  text-align: start;
+  transition: border-color var(--dur), box-shadow var(--dur);
+}
+.day-cell:hover { border-color: var(--border-strong); }
+.day-cell.is-out { opacity: .4; }
+.day-cell.is-today { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.day-cell.is-selected { background: var(--accent-soft); border-color: var(--accent); }
+.day-cell.is-rest { background: var(--sage); }
+.day-cell__nums { display: flex; justify-content: space-between; align-items: baseline; gap: 4px; }
+.day-cell__primary { font-weight: 600; font-variant-numeric: tabular-nums; }
+.day-cell__secondary { font-size: 11px; color: var(--text-3); font-variant-numeric: tabular-nums; }
+.day-cell__info { display: grid; gap: 4px; }
+.day-cell__count { font-size: 11px; color: var(--text-3); }
+.day-cell__bar { height: 4px; border-radius: var(--r-pill); background: var(--surface-3); overflow: hidden; }
+.day-cell__bar span { display: block; height: 100%; background: var(--accent); border-radius: inherit; }
+
+/* أسبوع */
+.week-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: var(--sp-2);
+}
+.week-col {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  padding: var(--sp-2);
+  border-radius: var(--r-md);
+  border: 1px solid var(--border);
+  min-height: 260px;
+  background: var(--surface);
+  text-align: start;
+}
+.week-col.is-today { border-color: var(--accent); }
+.week-col.is-selected { background: var(--accent-soft); }
+.week-col__head { display: grid; text-align: center; padding-bottom: 6px; border-bottom: 1px solid var(--border); margin-bottom: 4px; }
+.week-col__head strong { font-size: var(--fs-sm); }
+.week-col__head small { font-size: 11px; color: var(--text-3); }
+.week-chip {
+  font-size: 11px;
+  padding: 4px 6px;
+  border-radius: 6px;
+  background: var(--surface-2);
+  border-inline-start: 3px solid var(--c, var(--accent));
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.week-chip.is-done { text-decoration: line-through; color: var(--text-3); }
+.week-chip.is-late { color: var(--danger); }
+
+/* سنة: خريطة حرارية */
+.year-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: var(--sp-5);
+}
+.mini-month__title { font-weight: 600; font-size: var(--fs-sm); margin-bottom: 6px; display: flex; justify-content: space-between; }
+.mini-month__title span { color: var(--text-3); font-weight: 500; }
+.mini-month__grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; }
+.heat {
+  aspect-ratio: 1;
+  border-radius: 4px;
+  background: var(--surface-3);
+  border: 0;
+}
+.heat[data-level="1"] { background: color-mix(in srgb, var(--accent) 25%, var(--surface)); }
+.heat[data-level="2"] { background: color-mix(in srgb, var(--accent) 50%, var(--surface)); }
+.heat[data-level="3"] { background: color-mix(in srgb, var(--accent) 75%, var(--surface)); }
+.heat[data-level="4"] { background: var(--accent); }
+.heat.is-empty { background: transparent; }
+.heat.is-today { outline: 2px solid var(--text); outline-offset: 1px; }
+.heat-legend { display: flex; align-items: center; gap: 4px; font-size: var(--fs-xs); color: var(--text-3); margin-top: var(--sp-4); }
+.heat-legend .heat { width: 14px; height: 14px; }
+
+/* لوحة اليوم */
+.day-panel { position: sticky; top: calc(var(--topbar-h) + 16px); display: grid; gap: var(--sp-4); }
+.day-panel__title { font-size: var(--fs-lg); font-weight: 600; }
+.day-panel__sub { font-size: var(--fs-xs); color: var(--text-3); }
+.log { display: grid; gap: 6px; font-size: var(--fs-xs); color: var(--text-2); }
+.log li { display: flex; justify-content: space-between; gap: var(--sp-2); list-style: none; padding: 6px 10px; background: var(--surface-2); border-radius: var(--r-sm); }
+.log { padding: 0; margin: 0; }
+
+@media (max-width: 1000px) {
+  .cal-layout { grid-template-columns: 1fr; }
+  .day-panel { position: static; }
+}
+@media (max-width: 640px) {
+  .day-cell { min-height: 58px; padding: 5px; }
+  .day-cell__count { display: none; }
+  .month-grid { gap: 3px; }
+  .week-grid { grid-template-columns: 1fr; }
+  .week-col { min-height: 0; }
+}
+
+/* شمس "اليوم" الذهبية */
+.day-cell.is-today { border-color: var(--gold); box-shadow: inset 0 0 0 1px var(--gold); }
+.day-cell.is-today::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  inset-inline-end: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+.day-cell.is-today .day-cell__secondary { display: none; }
+.heat.is-today { outline-color: var(--gold); }
+.week-col.is-today { border-color: var(--gold); }
+.day-cell__primary { font-size: var(--fs-md); }
+.day-cell__secondary, .day-cell__count { font-size: 12px; }
+.month-grid__dow { font-size: var(--fs-sm); font-weight: 500; }
+.day-panel .task { padding: var(--sp-3) var(--sp-4); gap: var(--sp-3); }
+.day-panel .task__name { white-space: normal; }

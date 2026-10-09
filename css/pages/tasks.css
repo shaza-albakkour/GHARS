@@ -1,0 +1,63 @@
+/* ==========================================================================
+   tasks.css — صفحة كل المهام (البحث والتصفية)
+   ========================================================================== */
+
+.filters {
+  display: grid;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-4);
+}
+.filters__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  align-items: center;
+}
+.filters__row .select,
+.filters__date { width: auto; min-height: 38px; padding-top: 6px; padding-bottom: 6px; }
+
+.results-count {
+  font-size: var(--fs-sm);
+  color: var(--text-3);
+  margin-bottom: var(--sp-3);
+}
+
+.date-head {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text-2);
+  margin: var(--sp-5) 0 var(--sp-2);
+  display: flex;
+  gap: var(--sp-2);
+  align-items: baseline;
+}
+.date-head small { color: var(--text-3); font-weight: 500; }
+
+.def-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--sp-3);
+  align-items: center;
+  padding: var(--sp-3) var(--sp-4);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  position: relative;
+}
+.def-row::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: -1px;
+  top: 14px;
+  bottom: 14px;
+  width: 4px;
+  border-radius: 4px;
+  background: var(--c, var(--accent));
+}
+.def-row__name { font-weight: 600; }
+.def-row__meta { display: flex; flex-wrap: wrap; gap: 6px var(--sp-3); font-size: var(--fs-xs); color: var(--text-3); margin-top: 4px; align-items: center; }
+.def-row__actions { display: flex; gap: 2px; }
+
+@media (max-width: 640px) {
+  .filters__row .select, .filters__date { flex: 1 1 140px; }
+}

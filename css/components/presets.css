@@ -1,0 +1,38 @@
+/* ==========================================================================
+   presets.css — قوالب المهام الجاهزة (إضافة بنقرة) — العبادة والصحة
+   ========================================================================== */
+
+.preset-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: var(--sp-3);
+}
+
+.preset {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  column-gap: var(--sp-3);
+  align-items: center;
+  padding: var(--sp-4);
+  border-radius: var(--r-lg);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  text-align: start;
+  transition: border-color var(--dur), background var(--dur), transform var(--dur) var(--ease);
+}
+.preset:hover { border-color: var(--leaf); background: var(--surface-2); transform: translateY(-2px); }
+.preset__icon {
+  grid-row: 1 / span 2;
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  display: grid;
+  place-items: center;
+  font-size: 1.35rem;
+  background: var(--tile-leaf);
+}
+.preset__name { font-weight: 500; font-size: var(--fs-sm); line-height: 1.5; }
+.preset__desc { font-size: var(--fs-xs); color: var(--text-3); }
+.preset.is-added { border-color: var(--leaf); background: var(--tile-leaf); }
+.preset.is-added .preset__desc { color: var(--success); font-weight: 500; }

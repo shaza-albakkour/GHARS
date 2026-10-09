@@ -1,0 +1,58 @@
+/* ==========================================================================
+   modal.css — النوافذ المنبثقة (إضافة وتعديل وتأكيد)
+   ========================================================================== */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--overlay);
+  display: grid;
+  place-items: center;
+  padding: var(--sp-4);
+  animation: fade 180ms var(--ease);
+}
+
+.modal {
+  width: min(580px, 100%);
+  max-height: calc(100vh - 32px);
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border-radius: 20px;
+  box-shadow: var(--shadow-lg);
+  animation: rise 260ms var(--ease);
+}
+.modal--lg { width: min(780px, 100%); }
+.modal--sm { width: min(440px, 100%); }
+
+.modal__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  padding: var(--sp-6) var(--sp-8) var(--sp-4);
+}
+.modal__title { font-size: var(--fs-xl); font-weight: 600; }
+
+.modal__body {
+  padding: var(--sp-2) var(--sp-8) var(--sp-6);
+  overflow-y: auto;
+}
+
+.modal__foot {
+  display: flex;
+  gap: var(--sp-3);
+  justify-content: flex-start;
+  padding: var(--sp-4) var(--sp-8) var(--sp-6);
+  border-top: 1px solid var(--border);
+}
+
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+
+@media (max-width: 600px) {
+  .modal-backdrop { align-items: end; padding: 0; }
+  .modal { width: 100%; border-radius: 22px 22px 0 0; max-height: 94vh; }
+  .modal__head, .modal__body, .modal__foot { padding-inline: var(--sp-5); }
+}

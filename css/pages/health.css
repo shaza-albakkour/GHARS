@@ -1,0 +1,23 @@
+/* ==========================================================================
+   health.css — صفحة الصحة والوزن
+   ========================================================================== */
+
+.weight-history {
+  margin-top: var(--sp-5);
+  max-height: 280px;
+  overflow-y: auto;
+}
+.weight-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: var(--sp-3);
+  align-items: center;
+  padding: var(--sp-2) 0;
+  border-bottom: 1px solid var(--border);
+  font-size: var(--fs-sm);
+}
+.weight-row:last-child { border-bottom: 0; }
+.weight-row__value { font-weight: 600; font-variant-numeric: tabular-nums; }
+.weight-row__note { font-size: var(--fs-xs); color: var(--text-3); }
+.delta-up { color: var(--warning); }
+.delta-down { color: var(--success); }

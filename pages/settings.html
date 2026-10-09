@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>الإعدادات — غَرْس</title>
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lalezar&family=Readex+Pro:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/pages/settings.css">
+  <script src="../js/core/theme.js"></script>
+</head>
+<body>
+  <main class="page" id="page">
+    <div class="page-head">
+      <div>
+        <h1 class="page-head__title">الإعدادات</h1>
+        <p class="page-head__desc">الملف الشخصي، المظهر، الإشعارات، أيام الراحة، التصنيفات، والبيانات.</p>
+      </div>
+    </div>
+
+    <div class="settings">
+      <nav class="settings__nav" aria-label="أقسام الإعدادات">
+        <a href="#profile">الملف الشخصي</a>
+        <a href="#security">كلمة السر</a>
+        <a href="#appearance">المظهر</a>
+        <a href="#notifications">الإشعارات والمنبّه</a>
+        <a href="#rest">الراحة والاستثناءات</a>
+        <a href="#categories">التصنيفات</a>
+        <a href="#progress">التقدم</a>
+        <a href="#data">البيانات</a>
+      </nav>
+
+      <div class="settings__body">
+        <section class="card" id="profile">
+          <h2 class="settings__title"><span class="tile tile--sm tile--plum" data-icon="user"></span>الملف الشخصي</h2>
+          <form class="form" id="profile-form" novalidate>
+            <div class="form-row">
+              <div class="field"><label for="s-name">الاسم</label><input id="s-name" class="input" name="name" maxlength="40" required></div>
+              <div class="field"><label for="s-age">العمر</label><input id="s-age" class="input" type="number" name="age" min="7" max="120"></div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <span class="field-label">صيغة المخاطبة</span>
+                <div class="chip-group">
+                  <label class="chip-option"><input type="radio" name="gender" value="f"><span>أنتِ</span></label>
+                  <label class="chip-option"><input type="radio" name="gender" value="m"><span>أنتَ</span></label>
+                </div>
+              </div>
+              <div class="field"><label for="s-email">البريد الإلكتروني</label><input id="s-email" class="input ltr" name="email" disabled></div>
+            </div>
+            <p class="field-hint" id="created-at"></p>
+            <div class="form-actions"><button class="btn" type="submit">حفظ</button></div>
+          </form>
+        </section>
+
+        <section class="card" id="security">
+          <h2 class="settings__title"><span class="tile tile--sm tile--gold" data-icon="lock"></span>كلمة السر</h2>
+          <form class="form" id="password-form" novalidate>
+            <div class="field"><label for="s-cur">كلمة السر الحالية</label><input id="s-cur" class="input" type="password" name="current" autocomplete="current-password"></div>
+            <div class="form-row">
+              <div class="field"><label for="s-new">الجديدة</label><input id="s-new" class="input" type="password" name="next" autocomplete="new-password"></div>
+              <div class="field"><label for="s-conf">تأكيد الجديدة</label><input id="s-conf" class="input" type="password" name="confirm" autocomplete="new-password"></div>
+            </div>
+            <p class="field-hint">8 أحرف على الأقل، وتحتوي حرفًا ورقمًا. تُخزَّن مشفّرة (PBKDF2) ولا تُحفظ كنص واضح.</p>
+            <div class="field-error" data-error role="alert"></div>
+            <div class="form-actions"><button class="btn" type="submit">تغيير كلمة السر</button></div>
+          </form>
+        </section>
+
+        <section class="card" id="appearance">
+          <h2 class="settings__title"><span class="tile tile--sm tile--rose" data-icon="palette"></span>المظهر</h2>
+          <div class="stack">
+            <div class="field">
+              <span class="field-label">الوضع</span>
+              <div class="segmented" id="theme-mode" role="group" aria-label="الوضع">
+                <button data-mode="light">فاتح</button>
+                <button data-mode="dark">داكن</button>
+                <button data-mode="system">حسب الجهاز</button>
+              </div>
+            </div>
+            <div class="field">
+              <span class="field-label">اللون</span>
+              <div class="swatches" id="accents" role="radiogroup" aria-label="لون التطبيق"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card" id="notifications">
+          <h2 class="settings__title"><span class="tile tile--sm tile--sky" data-icon="bell"></span>الإشعارات والمنبّه</h2>
+          <div class="stack" id="notif-settings"></div>
+        </section>
+
+        <section class="card" id="rest">
+          <h2 class="settings__title"><span class="tile tile--sm tile--leaf" data-icon="leaf"></span>أيام الراحة والاستثناءات</h2>
+          <p class="text-sm text-muted mb-4">المهام في أيام الراحة والتصنيفات المستثناة لا تُعتبر فائتة، ولا تؤثر على النسبة أو الـStreak.</p>
+          <div class="stack" id="rest-settings"></div>
+        </section>
+
+        <section class="card" id="categories">
+          <h2 class="settings__title"><span class="tile tile--sm tile--sky" data-icon="tag"></span>التصنيفات</h2>
+          <div id="cat-list" class="cat-list"></div>
+          <form class="form mt-4" id="cat-form" novalidate>
+            <div class="form-row">
+              <div class="field"><label for="c-name">تصنيف جديد</label><input id="c-name" class="input" name="name" maxlength="24" placeholder="مثل: تعلّم التركية"></div>
+              <div class="field"><label for="c-icon">رمز</label><input id="c-icon" class="input" name="icon" maxlength="4" placeholder="🇹🇷"></div>
+              <div class="field"><label for="c-color">اللون</label><input id="c-color" class="input color-input" type="color" name="color" value="#2f8f5b"></div>
+            </div>
+            <label class="switch"><input type="checkbox" name="worship"><span class="switch-track"></span><span class="text-sm">تصنيف تعبّدي (يتأثر بوضع فترة الحيض)</span></label>
+            <div class="field-error" data-error role="alert"></div>
+            <div class="form-actions"><button class="btn btn--soft" type="submit">+ إضافة التصنيف</button></div>
+          </form>
+        </section>
+
+        <section class="card" id="progress">
+          <h2 class="settings__title"><span class="tile tile--sm tile--leaf" data-icon="chart"></span>التقدم والاستمرارية</h2>
+          <div class="form" id="progress-settings"></div>
+        </section>
+
+        <section class="card" id="data">
+          <h2 class="settings__title"><span class="tile tile--sm tile--sage" data-icon="database"></span>البيانات والنسخ الاحتياطي</h2>
+          <p class="text-sm text-muted mb-4">بياناتك محفوظة على هذا الجهاز فقط ولا يراها أي مستخدم آخر. يمكنك تصدير نسخة احتياطية واستعادتها لاحقًا.</p>
+          <div class="row row-wrap">
+            <button class="btn btn--soft" data-export>تصدير نسخة احتياطية</button>
+            <label class="btn btn--ghost" for="import-file">استعادة من ملف</label>
+            <input type="file" id="import-file" accept="application/json,.json" hidden>
+            <button class="btn btn--ghost" data-logout>تسجيل الخروج</button>
+            <button class="btn btn--danger" data-delete-account>حذف الحساب</button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/loader.js" data-page="settings"></script>
+</body>
+</html>

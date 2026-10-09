@@ -1,0 +1,17 @@
+/* ==========================================================================
+   stats.css — صفحة الإحصائيات
+   ========================================================================== */
+
+.best-list { display: grid; gap: var(--sp-3); }
+.best {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: var(--sp-4);
+  align-items: center;
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--r-lg);
+  background: var(--surface-2);
+}
+.best__label { font-size: var(--fs-xs); color: var(--text-3); }
+.best__value { font-weight: 500; }
+.best__pct { font-weight: 600; font-size: var(--fs-lg); font-variant-numeric: tabular-nums; color: var(--accent-ink); }

@@ -1,0 +1,85 @@
+/* ==========================================================================
+   typography.css — العناوين والنصوص والأدوات النصية العامة
+   ========================================================================== */
+
+h1, h2, h3, h4 {
+  line-height: var(--lh-tight);
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--text);
+  text-wrap: balance;
+}
+
+h1 { font-size: var(--fs-2xl); }
+h2 { font-size: var(--fs-xl); }
+h3 { font-size: var(--fs-lg); }
+h4 { font-size: var(--fs-md); }
+
+p { text-wrap: pretty; }
+
+.brand-word {
+  font-family: var(--font-brand);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.text-muted { color: var(--text-2); }
+.text-faint { color: var(--text-3); }
+.text-sm { font-size: var(--fs-sm); }
+.text-xs { font-size: var(--fs-xs); }
+.text-accent { color: var(--accent-ink); }
+.text-success { color: var(--success); }
+.text-danger { color: var(--danger); }
+.text-warning { color: var(--warning); }
+
+/* الأيقونات الخطية — الحجم الافتراضي بحجم النص */
+.icon {
+  display: inline-block;
+  width: 1.15em;
+  height: 1.15em;
+  vertical-align: -0.2em;
+  flex: none;
+}
+
+/* بلاطة أيقونة هادئة (تُستخدم في البطاقات والعناوين) */
+.tile {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  flex: none;
+  background: var(--tile-leaf);
+  color: var(--tile-leaf-ink);
+}
+.tile .icon { width: 22px; height: 22px; }
+.tile--sm { width: 32px; height: 32px; border-radius: 10px; }
+.tile--sm .icon { width: 18px; height: 18px; }
+.tile--lg { width: 52px; height: 52px; border-radius: 15px; }
+.tile--lg .icon { width: 26px; height: 26px; }
+.tile--gold { background: var(--tile-gold); color: var(--tile-gold-ink); }
+.tile--sky { background: var(--tile-sky); color: var(--tile-sky-ink); }
+.tile--rose { background: var(--tile-rose); color: var(--tile-rose-ink); }
+.tile--plum { background: var(--tile-plum); color: var(--tile-plum-ink); }
+.tile--sage { background: var(--tile-sage); color: var(--tile-sage-ink); }
+
+.num {
+  font-variant-numeric: tabular-nums;
+}
+
+.ltr {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

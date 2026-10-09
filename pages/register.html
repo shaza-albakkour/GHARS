@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>إنشاء حساب — غَرْس</title>
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lalezar&family=Readex+Pro:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/pages/auth.css">
+  <script src="../js/core/theme.js"></script>
+</head>
+<body>
+  <div class="auth">
+    <aside class="auth__brand">
+      <a class="auth__logo" href="../index.html">
+        <img src="../assets/images/favicon.svg" alt="">
+        <span>غَرْس</span>
+      </a>
+      <img class="auth__art" src="../assets/images/hero-seedling.jpg" alt="نبتة خضراء صغيرة تنمو وقت الشروق">
+      <p class="auth__quote">
+        <strong>كل شجرة عظيمة بدأت ببذرة.</strong>
+        <span>أنشئ حسابك وابدأ بزرع أول هدف.</span>
+      </p>
+    </aside>
+
+    <main class="auth__panel">
+      <div class="auth__card">
+        <a class="auth__back" href="../index.html">→ العودة للصفحة الرئيسية</a>
+        <header class="auth__head">
+          <div class="steps" aria-hidden="true"><span class="is-done" data-step-bar="1"></span><span data-step-bar="2"></span></div>
+          <span class="step-label" data-step-label>الخطوة 1 من 2 — بيانات الدخول</span>
+          <h1 data-step-title>إنشاء حساب جديد</h1>
+          <p data-step-desc>البريد الإلكتروني وكلمة السر.</p>
+        </header>
+
+        <!-- الخطوة 1: البريد وكلمة السر -->
+        <form class="form" id="step-1" novalidate>
+          <div class="form-alert" data-alert hidden role="alert"></div>
+          <div class="field">
+            <label for="email">البريد الإلكتروني</label>
+            <input id="email" class="input ltr" type="email" name="email" autocomplete="email" required placeholder="name@example.com">
+          </div>
+          <div class="field">
+            <label for="password">كلمة السر</label>
+            <div class="input-group">
+              <input id="password" class="input" type="password" name="password" autocomplete="new-password" required>
+              <button type="button" class="icon-btn icon-btn--sm" data-toggle-pw aria-label="إظهار كلمة السر"></button>
+            </div>
+            <ul class="pw-rules" data-pw-rules>
+              <li data-rule="len">8 أحرف على الأقل</li>
+              <li data-rule="letter">حرف</li>
+              <li data-rule="digit">رقم</li>
+            </ul>
+          </div>
+          <div class="field">
+            <label for="confirm">تأكيد كلمة السر</label>
+            <input id="confirm" class="input" type="password" name="confirm" autocomplete="new-password" required>
+          </div>
+          <button class="btn btn--lg btn--block" type="submit">التالي</button>
+        </form>
+
+        <!-- الخطوة 2: الاسم والعمر -->
+        <form class="form" id="step-2" novalidate hidden>
+          <div class="form-alert" data-alert hidden role="alert"></div>
+          <div class="field">
+            <label for="name">الاسم</label>
+            <input id="name" class="input" name="name" autocomplete="given-name" required maxlength="40" placeholder="سيظهر في رسائل الترحيب والتحفيز">
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="age">العمر</label>
+              <input id="age" class="input" type="number" name="age" min="7" max="120" required>
+            </div>
+            <div class="field">
+              <span class="field-label">صيغة المخاطبة</span>
+              <div class="chip-group">
+                <label class="chip-option"><input type="radio" name="gender" value="f" checked><span>أنتِ</span></label>
+                <label class="chip-option"><input type="radio" name="gender" value="m"><span>أنتَ</span></label>
+              </div>
+            </div>
+          </div>
+          <p class="field-hint">صيغة المخاطبة تُستخدم لكتابة الرسائل بشكل صحيح لغويًا.</p>
+          <div class="form-actions">
+            <button class="btn btn--lg" type="submit" style="flex:1">إنشاء الحساب</button>
+            <button class="btn btn--ghost btn--lg" type="button" data-back>رجوع</button>
+          </div>
+        </form>
+
+        <p class="auth__alt">لديك حساب؟ <a class="link-btn" href="login.html">سجّل الدخول</a></p>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/loader.js" data-page="register"></script>
+</body>
+</html>

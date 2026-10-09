@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="شعار غَرْس">
+  <!-- شعار غَرْس: ورقتان تنبتان معًا وفوقهما شمس ذهبية -->
+  <circle cx="32" cy="12" r="6.5" fill="#e0ad45"/>
+  <path d="M31 55 C19 53 8 43 7 25 C20 25 30 34 31 55 Z" fill="#3f8051"/>
+  <path d="M33 55 C45 53 56 43 57 25 C44 25 34 34 33 55 Z" fill="#1f5a3a"/>
+  <path d="M32 50 V60" stroke="#1f5a3a" stroke-width="3.2" stroke-linecap="round"/>
+</svg>

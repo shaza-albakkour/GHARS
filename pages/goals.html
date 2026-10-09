@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>الأهداف — غَرْس</title>
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lalezar&family=Readex+Pro:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/pages/goals.css">
+  <script src="../js/core/theme.js"></script>
+</head>
+<body>
+  <main class="page" id="page">
+    <!-- عرض كل الأهداف -->
+    <section id="overview">
+      <div class="page-head">
+        <div>
+          <h1 class="page-head__title">الأهداف</h1>
+          <p class="page-head__desc">سنوي ← شهري ← أسبوعي ← مهام يومية. افتح أي هدف لترى شجرته ونسبة كل مستوى.</p>
+        </div>
+        <button class="btn" data-new-goal>+ هدف جديد</button>
+      </div>
+      <div class="toolbar">
+        <div class="segmented" id="level-filter" role="group" aria-label="تصفية حسب المستوى">
+          <button data-level="" class="is-active">الكل</button>
+          <button data-level="yearly">سنوية</button>
+          <button data-level="monthly">شهرية</button>
+          <button data-level="weekly">أسبوعية</button>
+        </div>
+        <div class="segmented" id="status-filter" role="group" aria-label="تصفية حسب الحالة">
+          <button data-status="active" class="is-active">النشطة</button>
+          <button data-status="completed">المكتملة</button>
+          <button data-status="">الكل</button>
+        </div>
+      </div>
+      <div class="goal-grid" id="goal-grid"></div>
+    </section>
+
+    <!-- تفاصيل هدف واحد -->
+    <section id="detail" hidden></section>
+  </main>
+
+  <script src="../js/loader.js" data-page="goals"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+/* ==========================================================================
+   task-item.css — صف المهمة (اليوم، المهام، التقويم، العبادة، الصحة)
+   ========================================================================== */
+
+.task-list {
+  display: grid;
+  gap: var(--sp-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.task {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--sp-4);
+  padding: var(--sp-4) var(--sp-5);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  transition: border-color var(--dur) var(--ease), background var(--dur) var(--ease), opacity var(--dur);
+}
+.task:hover { border-color: var(--border-strong); }
+
+/* زر "تم الإنجاز" */
+.task__check {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  border: 1.5px solid var(--border-strong);
+  display: grid;
+  place-items: center;
+  color: transparent;
+  background: var(--surface);
+  transition: all var(--dur) var(--ease);
+  flex: none;
+}
+.task__check .icon { width: 18px; height: 18px; }
+.task__check:hover { border-color: var(--leaf); color: var(--leaf); background: var(--tile-leaf); }
+.task.is-done .task__check { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.task__check:disabled { cursor: default; opacity: .5; }
+
+.task__body { min-width: 0; display: grid; gap: 6px; }
+
+.task__name {
+  font-weight: 500;
+  font-size: var(--fs-md);
+  line-height: 1.5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.task.is-done .task__name { text-decoration: line-through; text-decoration-color: var(--text-3); color: var(--text-3); }
+
+.task__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+  font-size: var(--fs-xs);
+  color: var(--text-3);
+}
+
+.task__meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.task__meta-item .icon { width: 15px; height: 15px; }
+
+.task__actions { display: flex; align-items: center; gap: 2px; }
+
+.task.is-excluded,
+.task.is-cancelled { opacity: .62; }
+.task.is-late { background: color-mix(in srgb, var(--danger-soft) 45%, var(--surface)); }
+
+/* القائمة المنسدلة */
+.menu {
+  position: absolute;
+  z-index: 60;
+  min-width: 230px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 6px;
+  display: grid;
+  animation: pop 160ms var(--ease);
+}
+.menu button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: var(--r-sm);
+  font-size: var(--fs-sm);
+  text-align: start;
+}
+.menu button .icon { width: 18px; height: 18px; color: var(--text-3); }
+.menu button:hover { background: var(--surface-2); }
+.menu button.is-danger, .menu button.is-danger .icon { color: var(--danger); }
+.menu hr { border: 0; height: 1px; background: var(--border); margin: 4px 0; }
+
+@keyframes pop {
+  from { opacity: 0; transform: translateY(-4px) scale(.98); }
+  to { opacity: 1; transform: none; }
+}
+
+/* مجموعات المهام */
+.task-group { display: grid; gap: var(--sp-3); }
+.task-group + .task-group { margin-top: var(--sp-8); }
+.task-group__head {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  font-size: var(--fs-md);
+  color: var(--text);
+  font-weight: 600;
+}
+.task-group__count {
+  font-weight: 500;
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+  background: var(--surface-2);
+  border-radius: var(--r-pill);
+  padding: 0 10px;
+}
+
+@media (max-width: 600px) {
+  .task { grid-template-columns: auto 1fr auto; gap: var(--sp-3); padding: var(--sp-3) var(--sp-4); }
+  .task__name { white-space: normal; }
+}

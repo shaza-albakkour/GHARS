@@ -1,0 +1,28 @@
+/* ==========================================================================
+   admin.css — لوحة الإدارة
+   ========================================================================== */
+
+.admin-banner {
+  display: flex;
+  gap: var(--sp-3);
+  align-items: center;
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--r-lg);
+  background: var(--info-soft);
+  color: var(--info);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  margin-bottom: var(--sp-6);
+}
+
+.user-cell { display: flex; align-items: center; gap: var(--sp-3); }
+.user-cell .avatar { width: 34px; height: 34px; font-size: var(--fs-sm); }
+.user-cell small { display: block; color: var(--text-3); direction: ltr; text-align: end; }
+
+.status-dot { display: inline-flex; align-items: center; gap: 6px; font-size: var(--fs-xs); font-weight: 600; }
+.status-dot::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--success); }
+.status-dot.is-off { color: var(--danger); }
+.status-dot.is-off::before { background: var(--danger); }
+
+.color-input { padding: 4px; height: 44px; cursor: pointer; }
+.swatch-mini { display: inline-block; width: 14px; height: 14px; border-radius: 50%; vertical-align: middle; }

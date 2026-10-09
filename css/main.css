@@ -1,0 +1,29 @@
+/* ==========================================================================
+   main.css — ملف الفهرس: يستورد كل الأنماط المشتركة بترتيب ثابت.
+   كل صفحة تربط هذا الملف + ملف الصفحة الخاص بها من css/pages/.
+   لإضافة مكوّن جديد: أنشئ ملفه في components/ ثم أضف سطر @import هنا.
+   ========================================================================== */
+
+/* الأساس */
+@import url("base/variables.css");
+@import url("base/reset.css");
+@import url("base/typography.css");
+
+/* المكوّنات */
+@import url("components/buttons.css");
+@import url("components/forms.css");
+@import url("components/cards.css");
+@import url("components/badges.css");
+@import url("components/progress.css");
+@import url("components/task-item.css");
+@import url("components/modal.css");
+@import url("components/alarm.css");
+@import url("components/toast.css");
+@import url("components/charts.css");
+@import url("components/tabs.css");
+@import url("components/empty-state.css");
+@import url("components/presets.css");
+
+/* الهيكل */
+@import url("layout/app-shell.css");
+@import url("layout/grid.css");

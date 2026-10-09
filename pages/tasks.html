@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>كل المهام — غَرْس</title>
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lalezar&family=Readex+Pro:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/pages/tasks.css">
+  <script src="../js/core/theme.js"></script>
+</head>
+<body>
+  <main class="page" id="page">
+    <div class="page-head">
+      <div>
+        <h1 class="page-head__title">كل المهام</h1>
+        <p class="page-head__desc">ابحث وصفِّ حسب الاسم والتاريخ والتصنيف والأولوية والحالة والفترة.</p>
+      </div>
+    </div>
+
+    <div class="tabs" role="tablist">
+      <button role="tab" class="is-active" data-tab="occ" aria-selected="true">جدول المهام</button>
+      <button role="tab" data-tab="defs" aria-selected="false">إدارة المهام</button>
+    </div>
+
+    <section class="filters card card--tight" aria-label="البحث والتصفية">
+      <div class="search-box" id="search-box">
+        <input class="input" type="search" id="q" placeholder="ابحث باسم المهمة أو وصفها…" aria-label="بحث">
+      </div>
+      <div class="filters__row">
+        <div class="segmented" id="range" role="group" aria-label="المدى الزمني">
+          <button data-range="day">يوم</button>
+          <button data-range="week" class="is-active">أسبوع</button>
+          <button data-range="month">شهر</button>
+          <button data-range="year">سنة</button>
+        </div>
+        <input class="input filters__date" type="date" id="anchor" aria-label="التاريخ">
+        <select class="select" id="f-cat" aria-label="التصنيف"></select>
+        <select class="select" id="f-priority" aria-label="الأولوية"></select>
+        <select class="select" id="f-status" aria-label="الحالة"></select>
+        <select class="select" id="f-period" aria-label="نوع المهمة"></select>
+      </div>
+    </section>
+
+    <p class="results-count" id="count" aria-live="polite"></p>
+    <div id="results"></div>
+  </main>
+
+  <script src="../js/loader.js" data-page="tasks"></script>
+</body>
+</html>
